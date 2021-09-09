@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Author from './Components/Author';
 import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>React Concurrent Mode Demo</h1>
+    <Author />
   </React.StrictMode>,
   document.getElementById('root')
 );
