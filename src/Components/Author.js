@@ -1,12 +1,19 @@
 import React from 'react';
-import { fetchAuthor } from '../fakeApi';
+import { fetchAuthor, fetchQuotes } from '../fakeApi';
 import Quotes from './Quotes';
 
 const Author = () => {
   const [author, setAuthor] = React.useState(null);
+  const [quotes, setQuotes] = React.useState(null);
 
   React.useEffect(() => {
-    fetchAuthor().then(author => setAuthor(author));
+    Promise.all([
+      fetchAuthor(),
+      fetchQuotes(),
+    ]).then(([author, quotes]) => {
+      setAuthor(author);
+      setQuotes(quotes);
+    });
   }, []);
 
   return (
@@ -17,7 +24,7 @@ const Author = () => {
           <React.Fragment>
             <h1>{author.name}</h1>
             <h2>({author.birthYear} - {author.deathYear || 'present'})</h2>
-            <Quotes />
+            <Quotes quotes={quotes} />
           </React.Fragment>
       }
     </React.Fragment>

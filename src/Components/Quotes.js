@@ -1,13 +1,6 @@
 import React from 'react';
-import { fetchQuotes } from '../fakeApi';
 
-const Quotes = () => {
-  const [quotes, setQuotes] = React.useState(null);
-
-  React.useEffect(() => {
-    fetchQuotes().then(quotes => setQuotes(quotes));
-  }, []);
-
+const Quotes = ({quotes}) => {
   return (
     <React.Fragment>
       {
