@@ -1,5 +1,5 @@
 const FETCH_AUTHOR_DELAY = 1000;
-const FETCH_QUOTES_DELAY = 2500;
+const FETCH_QUOTES_DELAY = 1500;
 
 const author = { id: 0, name: 'Martin Luther King Jr', birthYear: 1929, deathYear: 1968 };
 
